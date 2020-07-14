@@ -1,0 +1,58 @@
+<app-header></app-header>
+<div class="botonera">
+
+        <button mat-button (click)="pedirTurnoF()">PEDIR TURNO </button>
+
+        <button mat-button (click)="pedirMisTurno()">VER MIS TURNO </button>
+        <button mat-button (click)="contacto()">CONTACTO</button>
+        </div>
+
+
+<div *ngIf="verPedirTurno">
+                <h2 class="h">Seleccione la fecha del turno que desea confirmar</h2>
+                <input type="datetime-local" min="{{this.fechaActual | date:'yyyy-MM-ddTHH:mm:ss'}}"
+                max="{{this.fechaMax | date:'yyyy-MM-ddTHH:mm:ss'}}"
+                step=60000
+                name="fecha" [(ngModel)]=fechaSelect (change)="fechaSeleccionada()" >
+                <h2 class="h">Seleccione el profesional que solicita</h2>
+                <select [(ngModel)]=profSelected>
+                    <option></option>
+                    <option *ngFor="let profes of arrayProfesionales ; let i = index"
+                   >{{profes.nombre}} {{profes.apellido}} ---- {{profes.especialidad}}----:{{profes.idauth}} 
+                </option>
+                    
+                   
+                </select>
+                <h2 class="h">{{this.mensajeFecha}}</h2>
+                <button class="boton" *ngIf="this.pedirTurno && profSelected!=undefinded && profSelected!=''" (click)= "solicitarTurno()">PEDIR TURNO</button>
+                <h2 class="h">{{this.mensaje}}</h2>
+
+</div>	
+<div *ngIf="VerMisTurnos" class="h">
+        <h1>Mis turnos Pendientes</h1>
+        <div *ngFor="let turno of this.turnoJSON">
+                {{turno.fecha}} {{turno.info}}
+        </div>
+        <h1>Mis Turnos Terminados</h1>
+        <div *ngFor="let turno of this.turnosTerminadosJSON">
+        <h3>Turno del dia {{turno.fecha}}</h3>
+          <p>Descirpcion de la consulta: {{turno.resenia}}</p>
+         <h4 class="verde" *ngIf="turno.encuesta">Resultado encuesta {{turno.encuesta}}</h4> 
+         <button *ngIf="!turno.encuesta"   class="botonera2" (click)="encuesta(turno)">Hacer encuesta</button>
+         </div>
+</div>
+
+<div *ngIf="mostrarEncuesta" class="divClass" position="buttom">
+        <h3>Valora la Clinica del 1 al 10</h3>
+        <mat-slider [(ngModel)]="valorClinica" [min]="1" [max]="10"></mat-slider>
+        {{this.valorClinica}}
+        <h3>Valora al Especialista del 1 al 10</h3>
+        <mat-slider [(ngModel)]="valorEspecialista" [min]="1" [max]="10"></mat-slider>
+        {{this.valorEspecialista}}
+        <br>
+        Ayudanos con tu breve opinion
+        <textarea [(ngModel)]="encuestaDatos" name="comentarios" rows="3" cols="40" class="input" maxlength="66"></textarea>
+        <br>
+        <button mat-button (click)="regresar()" color="success">Regresar</button>
+        <button mat-button (click)="aceptar()" color="success">Aceptar</button>
+        </div> 

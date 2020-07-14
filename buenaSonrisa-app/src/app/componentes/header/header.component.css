@@ -1,0 +1,10 @@
+.header {
+    width: 100%;
+    color:#f074c0;;
+    background-color: rgb(140, 183, 240);
+    font-size: 28pt;
+    text-align: center;
+}
+.right {
+    text-align: right;
+}

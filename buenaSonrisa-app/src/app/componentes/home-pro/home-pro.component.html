@@ -1,0 +1,46 @@
+<app-header></app-header>
+<div class="botonera">
+
+        <button mat-button (click)="verCrono()">CRONOGRAMA</button>
+        <button mat-button (click)="contacto()">CONTACTO</button>
+        </div>
+<div style="color:rgb(140, 183, 240);"*ngIf=mostrarCrono>
+                <h1>SELECCIONE LA FECHA</h1>
+                <input type="date"
+                name="fecha" [(ngModel)]=fechaSelect (change)="fechaSeleccionada()" >
+                <br>
+                <div class="card" *ngFor="let turno of this.turnoJSON">
+                     <img class="img-thumbnail" src="{{turno.cliente.foto}}" alt="Avatar" style="width:100%">
+                    <p>{{turno.fecha}}</p>
+                    <p>{{turno.cliente.nombre}} {{turno.cliente.apellido}}</p> 
+                    <p>TURNO {{turno.estado}}</p>
+                    <button class="botonera2"  *ngIf= "turno.estado == 'CONFIRMADO'" (click)="atender(turno)"> ATENDER</button>
+                    <p *ngIf= "turno.estado == 'ATENDIDO'">{{turno.resenia}}</p>
+            </div>
+</div>
+
+<div style="color:rgb(140, 183, 240);" *ngIf=contactoDiv>
+                <h1>CONTACTO</h1>
+                <H3>La clínica Buena Sonrisa, especialista en salud
+                 dental, cuenta actualmente con siete consultorios
+                 (más otros tres que están en construcción), dos
+                 laboratorios (uno especializado en diagnóstico por
+                 imágenes, y otro en mecánica dental), y una sala
+                 de espera general.
+             </H3>
+                 <h3>Está abierta al público de lunes
+                 a viernes en el horario de 8:00 a 19:00, y los
+                 sábados en el horario de 8:00 a 14:00.
+                 Trabajan en ella profesionales de diversas especialidades, que ocupan los consultorios acorde a su
+                 disponibilidad, y reciben en ellos pacientes con turno para consulta o tratamiento. Dichos turnos
+                 son asignados de forma centralizada por el área de recepción, que recibe las solicitudes
+                 personalmente, por teléfono, por e-mail o a través del sitio web de la clínica. La duración mínima de
+                 un turno es de 15 minutos.</h3>
+                 <img class= "imagen" src="../../../assets/img/png.png">
+             </div>
+
+             <div *ngIf=" mostrarResenia" class="divClass ">
+                    <textarea [(ngModel)]=resenia name="comentarios" rows="10" cols="40" class="input" maxlength="300"></textarea>
+                    <button class="botonera2" (click)="confirmarResenia()">CONFIRMAR</button>
+                    <button class="botonera2" (click)="cancelarResenia()">CANCELAR</button>
+            </div> 

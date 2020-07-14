@@ -1,0 +1,41 @@
+.botonera {
+    color:#f074c0;;
+    background-color: rgb(140, 183, 240);
+}
+.botoneras {
+    color:#f7f7f7;;
+    background-color: rgb(140, 183, 240);
+}
+.divClass {
+    text-align: center;
+    color:#f074c0;;
+    background-color: rgb(140, 183, 240);
+    position: absolute;
+    /*nos posicionamos en el centro del navegador*/
+    top:55%;
+    left:45%;
+    /*determinamos una anchura*/
+    width:500px;
+    height: 400px;
+    max-width:900px;
+    
+    /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+    margin-left:-200px;
+    /*determinamos una altura*/
+    max-height:900px;
+    /*indicamos que el margen superior, es la mitad de la altura*/
+    margin-top:-150px;
+    border:5px solid #f78ecf;;;
+    padding:5px;
+    
+}
+.h {
+    color:rgb(140, 183, 240); 
+}
+.boton {
+    width: 220px;
+    height: 150px;
+    color:#fcfcfc;;
+    background-color: rgb(140, 183, 240); 
+    font-size: 40px;
+}

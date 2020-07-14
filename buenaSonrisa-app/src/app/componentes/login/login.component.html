@@ -1,0 +1,69 @@
+<head>
+       
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+ <body class="col-xs-12 col-sm-12 col-md-12 ">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <span class="clearfix"></span>
+        <h1 class="h1">Consultorio "Buena Sonrisa"</h1>
+        <div class="divImg">
+          <img class= "col-xs-12 col-sm-12 col-md-12 imagen" src="../../../assets/img/png.png">
+               
+              </div>
+              <br>
+              <br><br>
+              <br><br>
+              <br><br>
+              <br><br>
+              <br><br>
+              <br><br>
+              <br><br>
+              <br><br>
+              <br>
+              <br>
+              <br>
+    <div class="divClass">
+    <h1 text-center>INICIAR SESIÓN</h1>
+  
+    <input type="text" class="button" [(ngModel)]="email" placeholder="Mail">
+    <br><br><br><br>
+    <input type="password" class="button"  [(ngModel)]="password" placeholder="Contraseña">
+
+    <br>
+    <br>
+    
+    <button mat-button (click)="onSubmitLogin()" class="button">Entrar</button>  
+    <button mat-button (click)="registrarse()" class="button">Registrarse</button>
+    <div id="msjError">
+        {{msjError}}
+    </div>
+</div> 
+
+
+
+<div *ngIf="mostrar" class="divClass ">
+        <br>
+
+      
+
+<h1 text-center>REGISTRARSE</h1>
+<input type="text" class="button" [(ngModel)]="name" placeholder="Nombre">
+<input type="text"  class="button" [(ngModel)]="apellido" placeholder="Apellido"><br>
+Imagen:
+<input type="file" class="button"  (change)="changeListener($event)">
+<input type="number"  class="button" [(ngModel)]="dni" placeholder="N° Documento">
+<input type="text" class="button" [(ngModel)]="email" placeholder="Mail">
+
+<input type="password" class="button" [(ngModel)]="password" placeholder="Contraseña">
+
+<br>
+<br>
+<button mat-button (click)="regresar()" color="success">Regresar</button>
+<button mat-button *ngIf="this.nombre != ''&& this.apellido != '' && this.image64 != ''  " (click)="aceptar()" color="success">Aceptar</button>
+<div id="msjError">
+    {{msjError}}
+</div>
+</div> 
+</body>

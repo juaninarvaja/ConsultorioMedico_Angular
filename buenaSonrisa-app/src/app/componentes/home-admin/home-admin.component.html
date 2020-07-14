@@ -1,0 +1,107 @@
+<app-header></app-header>
+<div class="botonera">
+
+<button mat-button [matMenuTriggerFor]="menu">ALTAS</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="altaCliente()">CLIENTE</button>
+  <button mat-menu-item (click)="altaPro()" >ESPECIALISTA</button>
+  <button mat-menu-item (click)="altaRec()" >RECEPCIONISTA</button>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="stats">ESTADISTICAS</button>
+<mat-menu #stats="matMenu">
+  <button mat-menu-item>EMPLEADOS</button>
+  <button mat-menu-item>TURNOS</button>
+  <button mat-menu-item>ESPECIALIDADES</button>
+</mat-menu>
+<button mat-button (click)="contacto()">CONTACTO</button>
+</div>
+
+<div style="color:rgb(140, 183, 240);" *ngIf=contactoDiv>
+   <h1>CONTACTO</h1>
+   <H3>La clínica Buena Sonrisa, especialista en salud
+    dental, cuenta actualmente con siete consultorios
+    (más otros tres que están en construcción), dos
+    laboratorios (uno especializado en diagnóstico por
+    imágenes, y otro en mecánica dental), y una sala
+    de espera general.
+</H3>
+    <h3>Está abierta al público de lunes
+    a viernes en el horario de 8:00 a 19:00, y los
+    sábados en el horario de 8:00 a 14:00.
+    Trabajan en ella profesionales de diversas especialidades, que ocupan los consultorios acorde a su
+    disponibilidad, y reciben en ellos pacientes con turno para consulta o tratamiento. Dichos turnos
+    son asignados de forma centralizada por el área de recepción, que recibe las solicitudes
+    personalmente, por teléfono, por e-mail o a través del sitio web de la clínica. La duración mínima de
+    un turno es de 15 minutos.</h3>
+    <img class= "imagen" src="../../../assets/img/png.png">
+</div>
+
+<div *ngIf="cargaCliente" class="divClass">
+    <br>
+<h1 text-center>CARGAR CLIENTE</h1>
+<input type="text" class="button" [(ngModel)]="name" placeholder="Nombre">
+<input type="text"  class="button" [(ngModel)]="apellido" placeholder="Apellido"><br>
+Imagen:
+<input type="file" class="button"  (change)="changeListener($event)">
+<input type="number"  class="button" [(ngModel)]="dni" placeholder="N° Documento">
+<input type="text" class="button" [(ngModel)]="email" placeholder="Mail">
+
+<input type="password" class="button" [(ngModel)]="password" placeholder="Contraseña">
+<br>
+<br>
+
+<button mat-button (click)="regresar()" color="success">Regresar</button>
+<button mat-button *ngIf="this.nombre != ''&& this.apellido != '' && this.image64 != ''  "  (click)="aceptar()" color="success">Aceptar</button>
+<div id="msjError">
+{{msjError}}
+</div>
+</div> 
+
+<div *ngIf="cargaPro" class="divClass">
+    <br>
+<h1 text-center>CARGAR PROFESIONAL</h1>
+<input type="text" class="button" [(ngModel)]="name" placeholder="Nombre">
+<input type="text"  class="button" [(ngModel)]="apellido" placeholder="Apellido"><br>
+<select [(ngModel)]=type>
+        <option value="Mecanico Dental" >Mecanico Dental</option>
+        <option value="Ortodoncista">Ortodoncista</option>
+        <option value="Cirujano Oral">Cirujano Oral</option>
+        <option value="Dentista pediátrico">Dentista pediátrico</option>
+</select>
+<br>
+Imagen:
+<input type="file" class="button"  (change)="changeListener($event)">
+<input type="number"  class="button" [(ngModel)]="dni" placeholder="N° Documento">
+<input type="text" class="button" [(ngModel)]="email" placeholder="Mail">
+
+<input type="password" class="button" [(ngModel)]="password" placeholder="Contraseña">
+
+<br>
+<br>
+
+<button mat-button (click)="regresar()" color="success">Regresar</button>
+<button mat-button *ngIf=" this.nombre != ''&& this.apellido != '' && this.image64 != ''  "  (click)="aceptarPro()" color="success">Aceptar</button>
+<div id="msjError">
+{{msjError}}
+</div>
+</div> 
+
+<div *ngIf="cargaRecep" class="divClass">
+        <br>
+    <h1 text-center>CARGAR RECEPCIONISTA </h1>
+    <input type="text" class="button" [(ngModel)]="name" placeholder="Nombre">
+    <input type="text"  class="button" [(ngModel)]="apellido" placeholder="Apellido"><br>
+    Imagen:
+    <input type="file" class="button"  (change)="changeListener($event)">
+    <input type="number"  class="button" [(ngModel)]="dni" placeholder="N° Documento">
+    <input type="text" class="button" [(ngModel)]="email" placeholder="Mail">
+    
+    <input type="password" class="button" [(ngModel)]="password" placeholder="Contraseña">
+    <br>
+    <br>
+    <button mat-button (click)="regresar()" color="success">Regresar</button>
+    <button mat-button *ngIf=" this.nombre != ''&& this.apellido != '' && this.image64 != ''  "  (click)="aceptarRec()" color="success">Aceptar</button>
+    <div id="msjError">
+    {{msjError}}
+    </div>
+    </div> 

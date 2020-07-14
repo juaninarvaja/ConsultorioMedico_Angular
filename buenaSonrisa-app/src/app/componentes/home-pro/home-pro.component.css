@@ -1,0 +1,60 @@
+.botonera {
+    color:#f074c0;;
+    background-color: rgb(140, 183, 240);
+}
+.botonera2 {
+    color:white;
+    background-color:#e974bc;
+    height:30px;
+}
+.card {
+    box-shadow: 0 4px 18px 0 rgba(51, 61, 211, 0.932);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    /* max-width: 300px; */
+    width:330px;
+    height: 490px;
+    margin: 10px;
+    padding-bottom: 10px;
+    /* padding-left: 30px; */
+    float: left;
+    background-color: rgb(140, 183, 240);
+    text-align: center;
+    color:#ec51b1;
+}
+img {
+    /* border-top: 15px; */
+    /* padding:2px; */
+    border-radius: 5px 5px 0 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 25px;
+}/* Add some padding inside the card container */
+.divClass {
+    text-align: center;
+    color:#f074c0;;
+    background-color: rgb(140, 183, 240);
+    position: absolute;
+    /*nos posicionamos en el centro del navegador*/
+    top:55%;
+    left:45%;
+    /*determinamos una anchura*/
+    width:400px;
+    height: 300px;
+    max-width:900px;
+    
+    /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+    margin-left:-200px;
+    /*determinamos una altura*/
+    max-height:900px;
+    /*indicamos que el margen superior, es la mitad de la altura*/
+    margin-top:-150px;
+    border:5px solid #f78ecf;
+    padding:5px;
+    
+}
+.input {
+    width: 100%;
+    height: 80%;
+     border-radius: 12px;
+ }
